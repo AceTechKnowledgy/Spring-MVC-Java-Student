@@ -12,27 +12,32 @@ import com.siva.student.model.Student;
 public class StudentServiceImpl implements StudentService {
 
 	@Autowired
-	private StudentDaoImpl employeeDaoImpl;
+	private StudentDaoImpl studentDaoImpl;
 	
 	//Service method to get all the students
 	@Override
 	public List<Student> listAll() {
-		return employeeDaoImpl.getStudents();
+		return studentDaoImpl.getStudents();
 	}
 
 	@Override
 	public void insertStudent(Student student) {
-		employeeDaoImpl.insertStudent(student);		
+		studentDaoImpl.insertStudent(student);		
 	}
 
 	@Override
 	public Student findByRollNo(String rollNo) {
-		return employeeDaoImpl.findStudentByRollNo(rollNo);
+		return studentDaoImpl.findStudentByRollNo(rollNo);
 	}
 
 	@Override
 	public void updateStudent(Student student) {
-		employeeDaoImpl.updateStudentInTable(student);
+		studentDaoImpl.updateStudentInTable(student);
+	}
+
+	@Override
+	public void removeStudent(String rollNo) {
+		studentDaoImpl.deleteStudent(rollNo);
 	}
 
 	

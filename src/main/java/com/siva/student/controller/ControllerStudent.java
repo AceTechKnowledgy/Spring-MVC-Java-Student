@@ -62,5 +62,13 @@ public class ControllerStudent {
 		service.updateStudent(student);
 		return "redirect:displayStudents";
 	}
-
+	
+	//This method will remove the particular Student from the page and the database when user clicked the remove option
+	@RequestMapping(value="removeStudent")
+	public String removeStudent(@RequestParam("rollNo") String rollNo) {
+		service.removeStudent(rollNo);
+		return "redirect:displayStudents";
+	}
+	
+	
 }

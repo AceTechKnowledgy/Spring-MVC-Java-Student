@@ -13,4 +13,6 @@ public interface StudentDao {
 	Student findStudentByRollNo(String rollNo);
 	
 	void updateStudentInTable(Student student);
+	
+	void deleteStudent(String rollNo);
 }

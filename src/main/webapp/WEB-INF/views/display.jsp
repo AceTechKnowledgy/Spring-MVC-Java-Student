@@ -28,7 +28,7 @@
 					<td>${stu.name}</td>
 					<td>${stu.standard}</td>
 					<td><a href="editStudent?rollNo=${stu.rollNo}">Edit</a></td>
-					<td><a href="">Remove</a></td>
+					<td><a href="removeStudent?rollNo=${stu.rollNo}">Remove</a></td>
 				</tr>
 			</c:forEach>
 

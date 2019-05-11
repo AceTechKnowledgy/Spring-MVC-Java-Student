@@ -45,6 +45,12 @@ public class StudentDaoImpl implements StudentDao {
 		jdbcTemplate.update(query, student.getName(), student.getStandard(), student.getRollNo());
 	}
 
+	@Override
+	public void deleteStudent(String rollNo) {
+		String query = "delete from student where rollNo = ?";
+		jdbcTemplate.update(query, rollNo);
+	}
+
 }
 
 class FindStudentByRollNo implements RowMapper<Student> {

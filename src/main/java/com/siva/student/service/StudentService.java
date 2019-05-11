@@ -14,4 +14,6 @@ public interface StudentService {
 	
 	void updateStudent(Student student);
 	
+	void removeStudent(String rollNo);
+	
 }
