@@ -25,13 +25,39 @@ public class StudentDaoImpl implements StudentDao {
 		return jdbcTemplate.queryForObject(query, new ListAll());
 	}
 
-	//Method to isert into the table
+	//Method to insert into the table
 	@Override
 	public void insertStudent(Student student) {
 		String query = "insert into student values(?,?,?)";
 		jdbcTemplate.update(query, student.getRollNo(), student.getName(), student.getStandard());	
 	}
 
+	//Method to find the Student by its id
+	@Override
+	public Student findStudentByRollNo(String rollNo) {
+		String query = "select * from student where rollNo = ?";
+		return jdbcTemplate.queryForObject(query, new FindStudentByRollNo(), rollNo);
+	}
+	
+	//Method to update the Student received
+	public void updateStudentInTable(Student student) {
+		String query = "update student set name=?,standard=? where rollNo=?";
+		jdbcTemplate.update(query, student.getName(), student.getStandard(), student.getRollNo());
+	}
+
+}
+
+class FindStudentByRollNo implements RowMapper<Student> {
+
+	@Override
+	public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
+		Student student = new Student();
+		student.setRollNo(rs.getInt("rollNo"));
+		student.setName(rs.getString("name"));
+		student.setStandard(rs.getString("standard"));
+		return student;
+	}
+	
 }
 
 //Class for Rowmapper to get all the students
@@ -53,5 +79,4 @@ class ListAll implements RowMapper<List<Student>> {
 		
 		return students;
 	}
-	
 }

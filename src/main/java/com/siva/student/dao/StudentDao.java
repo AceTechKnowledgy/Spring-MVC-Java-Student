@@ -9,4 +9,8 @@ public interface StudentDao {
 	List<Student> getStudents();
 	
 	void insertStudent(Student student);
+	
+	Student findStudentByRollNo(String rollNo);
+	
+	void updateStudentInTable(Student student);
 }

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.siva.student.model.Student;
 import com.siva.student.service.StudentServiceImpl;
@@ -37,17 +39,28 @@ public class ControllerStudent {
 		return "add";
 	}
 
-	//This method will handle the request when the add button is clicked in add.jsp page
+	//This method will handle the request when the "Add" button is clicked in add.jsp page
 	@RequestMapping(value="addStudentAction")
 	public String addStudentToTable(@ModelAttribute Student student) {
 		service.insertStudent(student);
-		return "index";
+		return "redirect:displayStudents";
 	}
 
-	//This method will return simply the edit.jsp page
+	//This method will return the edit.jsp page with the rollNo passed and populate the student data
 	@RequestMapping(value="editStudent")
-	public String editStudent() {
-		return "edit";
+	public ModelAndView editStudent(@RequestParam("rollNo") String rollNo) {
+		ModelAndView mav = new ModelAndView();
+		Student student = service.findByRollNo(rollNo);
+		mav.setViewName("edit");
+		mav.addObject("student", student);
+		return mav;
+	}
+	
+	//This method will be called when the user pressed the "Update" button in edit.jsp page
+	@RequestMapping(value="editStudentAction")
+	public String updateStudent(@ModelAttribute Student student) {
+		service.updateStudent(student);
+		return "redirect:displayStudents";
 	}
 
 }

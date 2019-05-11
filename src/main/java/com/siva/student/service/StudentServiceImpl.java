@@ -25,5 +25,15 @@ public class StudentServiceImpl implements StudentService {
 		employeeDaoImpl.insertStudent(student);		
 	}
 
+	@Override
+	public Student findByRollNo(String rollNo) {
+		return employeeDaoImpl.findStudentByRollNo(rollNo);
+	}
+
+	@Override
+	public void updateStudent(Student student) {
+		employeeDaoImpl.updateStudentInTable(student);
+	}
+
 	
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Menu</title>
 </head>
 <body>
 	<div class="heading">
@@ -13,9 +13,7 @@
 	<div class="links">
 		<a href="./">Home</a> <br>
 		<a href="addStudent">Add Student</a> <br>
-		<a href="editStudent">Edit Student</a> <br>
 		<a href="displayStudents">Display Students</a> <br>
-		<a href="">Remove Student</a>
 	</div>
 </body>
 </html>

@@ -10,4 +10,8 @@ public interface StudentService {
 	
 	void insertStudent(Student student);
 	
+	Student findByRollNo(String rollNo);
+	
+	void updateStudent(Student student);
+	
 }
