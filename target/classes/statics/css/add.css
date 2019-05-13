@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.body {
+	text-align: center;
+	margin-top: 150px;
+	height: 200px;
+	
+}
+
+#rollNo {
+	margin: 10px 20px;
+	font-size: 1.5em;
+}
+
+#name {
+	margin: 10px 25px;
+	font-size: 1.5em;
+	padding-right: 5px;
+}
+
+#standard {
+	margin: 10px 20px;
+	font-size: 1.5em;
+}
+
+#button {
+	margin: 10px 20px;
+	font-size: 30px;
+	width: 200px;
+	border: 5px solid red;
+}
+
+#button:hover {
+  background: #521b65; /* Green */
+  color: white;
+}
+
+
+
+

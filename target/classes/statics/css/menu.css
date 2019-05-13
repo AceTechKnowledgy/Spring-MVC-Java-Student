@@ -5,6 +5,9 @@
 	padding: 0;
 	text-decoration: none;
 }
+body {
+	background: #808080;	
+}
 
 .heading {
 	background: #521b65;
